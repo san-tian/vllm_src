@@ -1398,6 +1398,9 @@ class ExecuteModelRequest(
     last_sampled_token_ids: Optional[torch.Tensor] = None
     # Async callback
     async_callback: Optional[Callable] = None
+    # For pipeline parallelism with dynamic split points:
+    # If set, the model should stop execution before this layer index.
+    execute_until_layer: Optional[int] = None
 
     @property
     def is_first_multi_step(self) -> bool:
