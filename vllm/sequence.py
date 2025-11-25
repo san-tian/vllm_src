@@ -1403,6 +1403,8 @@ class ExecuteModelRequest(
     execute_until_layer: Optional[int] = None
     # If set, the model should start execution from this layer index (skipping previous ones).
     execute_from_layer: Optional[int] = None
+    # List of target server addresses for each sequence group in the batch.
+    target_server_list: Optional[list[str]] = None
 
     @property
     def is_first_multi_step(self) -> bool:
