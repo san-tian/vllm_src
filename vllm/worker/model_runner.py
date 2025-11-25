@@ -1834,6 +1834,8 @@ class ModelRunner(GPUModelRunnerBase[ModelInputForGPUWithSamplingMetadata]):
             model_kwargs["previous_hidden_states"] = previous_hidden_states
         if "execute_until_layer" in kwargs:
             model_kwargs["execute_until_layer"] = kwargs["execute_until_layer"]
+        if "execute_from_layer" in kwargs:
+            model_kwargs["execute_from_layer"] = kwargs["execute_from_layer"]
         if (self.observability_config is not None
                 and self.observability_config.collect_model_forward_time):
             model_forward_start = torch.cuda.Event(enable_timing=True)

@@ -1401,6 +1401,8 @@ class ExecuteModelRequest(
     # For pipeline parallelism with dynamic split points:
     # If set, the model should stop execution before this layer index.
     execute_until_layer: Optional[int] = None
+    # If set, the model should start execution from this layer index (skipping previous ones).
+    execute_from_layer: Optional[int] = None
 
     @property
     def is_first_multi_step(self) -> bool:
